@@ -1,0 +1,8 @@
+- name: Useradd operator
+  hosts: all
+  vars:
+      password: P@ssw0rd
+  tasks:
+    - name: create user
+      user: name=operator password={{P@ssw0rd}} group=1690 uid:1691 state=present
+
