@@ -19,5 +19,5 @@
          
     - copy:
          remote_src: true
-         src: /file/ansible-tower-setup-latest.tar
+         src: /tmp/ansible-tower-setup-latest.tar
          dest: /tmp/ansible-tower-setup-latest.tar.20170821
