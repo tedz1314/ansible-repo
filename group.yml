@@ -1,0 +1,13 @@
+---
+- name: Create Group
+  hosts: all
+  vars:
+      group: test
+      gid: 1660
+  tasks:
+    - name: create group {{ group }}
+    - group:
+         group:  {{ group }}
+         gid: {{ gid }}
+         state: present
+         system: no

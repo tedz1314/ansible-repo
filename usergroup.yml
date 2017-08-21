@@ -1,0 +1,20 @@
+---
+- name: Useradd user
+  hosts: all
+  vars:
+  tasks:
+    - name: create group testgroup
+    - group:
+         group:  testgroup
+         gid: 1500
+         state: present
+         system: no
+    - name: create user test01
+    - user:
+         name: test01
+         password: P@ssw0rd
+         group:  testgroup
+         uid: 1501
+         shell: /bin/bash
+         groups: wheel
+         append: yes
