@@ -4,7 +4,7 @@
   vars:
   tasks:
     - group:
-         group:  testgroup
+         name:  testgroup
          gid: 1500
          state: present
          system: no
