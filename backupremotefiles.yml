@@ -1,0 +1,23 @@
+---
+- name: Useradd user
+  hosts: all
+  vars:
+  tasks:
+    - group:
+         name:  testgroup
+         gid: 1500
+         state: present
+         system: no
+    - user:
+         name: test05
+         password: P@ssw0rd
+         group:  testgroup
+         uid: 1505
+         shell: /bin/bash
+         groups: wheel
+         append: yes
+         
+    - copy:
+         remote_src: true
+         src: /file/ansible-tower-setup-latest.tar
+         dest: /tmp/ansible-tower-setup-latest.tar.20170821
