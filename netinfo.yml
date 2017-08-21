@@ -1,0 +1,6 @@
+- name: GetIP
+  hosts: all
+  tasks:
+    - name: GetIP
+      command: ip a
+

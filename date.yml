@@ -1,0 +1,6 @@
+- name: Date Test
+  hosts: all
+  tasks:
+    - name: Check server date
+      command: date
+
