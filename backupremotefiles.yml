@@ -22,5 +22,5 @@
          remote_src: true
          src: /tmp/ansible-tower-setup-latest.tar
          dest: /tmp/ansible-tower-setup-latest.tar.{{ date }}
-         user: test01
+         owner: test01
          group: testgroup
