@@ -1,8 +1,8 @@
 ---
 - hosts: all
-  remote_user: ansible
+  #remote_user: ansible
   #sudo: yes
-  become: true
+  #become: true
   vars:
     jdk_dir: 8u131-b11
     jdk_archive: jdk-8u131-linux-x64.tar.gz
