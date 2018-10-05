@@ -32,8 +32,9 @@
 
   - name: Unpack archive
     unarchive:
-     src=/software/"{{ jdk_archive }}"
+     src=/tmp/"{{ jdk_archive }}"
      dest="{{ download_folder }}"
+     remote_src= yes
      # command: "tar -xzvf "{{java_archive}}" -C "{{download_folder}}" creates="{{java_name}}"
      # action: shell tar -xzvf "{{java_archive}}" -C "{{download_folder}}"
 
