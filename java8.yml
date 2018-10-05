@@ -82,12 +82,12 @@
                 export JAVA_HOME="{{ java_name }}"
                 export JRE_HOME="{{ java_name }}"/jre
                 export PATH=$PATH:"{{ java_name }}"/bin:"{{ java_name }}"/jre/bin
-      dest: /tmp/oracle_jdk.sh
+      dest: /etc/profile
 
   # Fix the executable permission
-  - name: Set executable perission
-    file: path=/tmp/oracle_jdk.sh owner=root group=root mode=0555 state=file recurse=no
+#  - name: Set executable perission
+#    file: path=/tmp/oracle_jdk.sh owner=root group=root mode=0555 state=file recurse=no
 
   # Export the env on th fly to make system wide change
-  - name: Source the file /tmp/oracle_jdk.sh
-    action: shell source /etc/profile
+#  - name: Source the file /tmp/oracle_jdk.sh
+#    action: shell source /etc/profile
