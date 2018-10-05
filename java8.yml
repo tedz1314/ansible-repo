@@ -86,8 +86,8 @@
 
   # Fix the executable permission
   - name: Set executable perission
-    file: path="{{profile_path}}"/oracle_jdk.sh owner=root group=root mode=0555 state=file recurse=no
+    file: path=/tmp/oracle_jdk.sh owner=root group=root mode=0555 state=file recurse=no
 
   # Export the env on th fly to make system wide change
-  - name: Source the file "{{profile_path}}"/oracle_jdk.sh
+  - name: Source the file /tmp/oracle_jdk.sh
     action: shell source /etc/profile
