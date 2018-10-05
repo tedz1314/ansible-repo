@@ -32,11 +32,11 @@
 
   - name: Unpack archive
     unarchive:
-     src="{{ java_archive }}"
+     #src="{{ java_archive }}"
      dest="{{ download_folder }}"
      # command: "tar -xzvf "{{java_archive}}" -C "{{download_folder}}" creates="{{java_name}}"
      # action: shell tar -xzvf "{{java_archive}}" -C "{{download_folder}}"
-     
+
 
   - name: Fix ownership
     file: state=directory path="{{ java_name }}" owner=root group=root recurse=yes
