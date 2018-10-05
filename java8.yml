@@ -1,5 +1,5 @@
 ---
-- hosts: new
+- hosts: all
   remote_user: ansible
   #sudo: yes
   become: true
