@@ -28,11 +28,11 @@
     #command: mkdir -p "{{java_name}}"
 
   - name: Download Java
-    get_url: url="{{ jdk_tarball_url }}"  dest="{{ java_archive }}" headers="Cookie:' gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'" validate_certs=no owner=root group=root mode=744
+    get_url: url="{{ jdk_tarball_url }}"  dest="{{ java_archive }}" headers="Cookie:' gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'" validate_certs=no owner=root group=root mode=744 dest=/tmp
 
   - name: Unpack archive
     unarchive:
-     #src="{{ java_archive }}"
+     src=/tmp/"{{ java_archive }}"
      dest="{{ download_folder }}"
      # command: "tar -xzvf "{{java_archive}}" -C "{{download_folder}}" creates="{{java_name}}"
      # action: shell tar -xzvf "{{java_archive}}" -C "{{download_folder}}"
