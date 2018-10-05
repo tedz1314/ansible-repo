@@ -37,7 +37,6 @@
            groups: pocoper,pocbackup
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
-           seuser: yes
            update_password: on_create
   tasks:
     - name: create operator
@@ -48,7 +47,6 @@
            groups: pocbackup
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
-           seuser: yes
            update_password: on_create
   tasks:
     - name: create backup
@@ -59,5 +57,4 @@
            groups: 
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
-           seuser: yes
            update_password: on_create
