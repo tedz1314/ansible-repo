@@ -1,0 +1,62 @@
+Create Standard accounts eg. admin, operator, backup,
+---
+- name: Create Groups
+  hosts: all
+  vars:
+  tasks:
+    - name: create admin group
+    - group:
+         group:  pocadmin
+         gid: 28140
+         state: present
+         system: no
+  tasks:
+    - name: create operator group
+    - group:
+         group:  pocoper
+         gid: 28141
+         state: present
+         system: no
+  tasks:
+    - name: create backup group
+    - group:
+         group:  pocbackup
+         gid: 28142
+         state: present
+         system: no
+- name: Create Users
+  hosts: all
+  vars:
+  tasks:
+    - name: create admin user
+    - user:
+           name: admin
+           uid: 28140
+           group: pocadmin
+           groups: pocoper,pocbackup
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           seuser
+           update_password: on_create
+  tasks:
+    - name: create operator
+    - user:
+           name: oper
+           uid: 28141
+           group: pocoper
+           groups: pocbackup
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           seuser
+           update_password: on_create
+  tasks:
+    - name: create backup
+    - user:
+           name: backup
+           uid: 28142
+           group: pocbackup
+           groups: 
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           seuser
+           update_password: on_create
