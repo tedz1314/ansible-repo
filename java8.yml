@@ -48,10 +48,13 @@
 #    command: alternatives --install /usr/bin/javac javac "{{ java_name }}"/bin/javac 2
 #    command: alternatives --set jar "{{ java_name }}"/bin/jar
 #    command: alternatives --set javac "{{ java_name }}"/bin/javac
-  - name: add java to PATH
-    copy:
-      dest: /etc/profile
-      content: 'PATH=$PATH:"{{ java_name }}"/bin'
+#  - name: add java to PATH
+#    copy:
+#      dest: /etc/profile
+#      content: 'PATH=$PATH:"{{ java_name }}"/bin'
+
+  - name: Create Directory structure
+    file: path="{{profile_path}}" state=directory
 
   - name: Set systemwide oracle env file under /etc/profile.d/
     set_fact: remote_file_path="{{profile_path}}"/oracle_jdk.sh
