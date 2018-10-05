@@ -1,4 +1,4 @@
-Create Standard accounts eg. admin, operator, backup,
+#Create Standard accounts eg. admin, operator, backup,
 ---
 - name: Create Groups
   hosts: all
