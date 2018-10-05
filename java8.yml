@@ -32,7 +32,7 @@
 
   - name: Unpack archive
     unarchive:
-     src=/tmp/"{{ java_archive }}"
+     src=/tmp/"{{ jdk_archive }}"
      dest="{{ download_folder }}"
      # command: "tar -xzvf "{{java_archive}}" -C "{{download_folder}}" creates="{{java_name}}"
      # action: shell tar -xzvf "{{java_archive}}" -C "{{download_folder}}"
