@@ -10,8 +10,8 @@
     download_folder: /opt/oracle
     bin_dir: /usr/bin
     profile_path: /etc/profile.d
-    java_name: "{{ download_folder }}"/"{{ jdk_local_dir }}"
-    java_archive: "{{ download_folder }}"/"{{ jdk_archive }}"
+    java_name: "{{ download_folder }}/{{ jdk_local_dir }}"
+    java_archive: "{{ download_folder }}/{{ jdk_archive }}"
     download_url: http://download.oracle.com/otn-pub/java/jdk/"{{jdk_dir}}"/"{{jdk_archive}}"
     java_version: 8
     java_subversion: 131
