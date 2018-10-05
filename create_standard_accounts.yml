@@ -36,7 +36,7 @@
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
            update_password: on_create
-    - name: create operator
+    - name: create operator user
       user:
            name: oper
            uid: 28141
@@ -45,7 +45,7 @@
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
            update_password: on_create
-    - name: create backup
+    - name: create backup user
       user:
            name: backup
            uid: 28142

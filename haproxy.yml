@@ -1,6 +1,6 @@
 - name: Install and configure haproxy
   hosts: all
-  
+
   vars:
     haproxy_frontend: test_front
     haproxy_backend: test_back
@@ -14,33 +14,30 @@
       - {name: server2, ip: 192.168.99.172, port: 636, paramstring: check}
     haproxy_stats_users:
       - {username: admin, password: password}
-    
+
   handlers:
     - name: Restart haproxy
       service:
          name: haproxy
          state: restarted
       listen:"restart haproxy"
-      
+
   tasks:
     - name: Install haproxy
       yum: pkg=haproxy state=latest update_cache=true
-      
+
     - name: Enable haproxy
       service:
          name: haproxy
          enabled: yes
          state: started
-    
+
     - name: Update haproxy configure
       template:
          src: /ansible/templates/haproxy.cfg
          dest: /etc/haproxy/haproxy.cfg
          backup: yes
-    
+
     - name: Restart haproxy
       command: echo "this task will restart haproxy"
       notify: "restart haproxy"
-      
-
-  
