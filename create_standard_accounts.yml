@@ -6,21 +6,21 @@
   tasks:
     - name: create admin group
     - group:
-         group:  pocadmin
+         name:  pocadmin
          gid: 28140
          state: present
          system: no
   tasks:
     - name: create operator group
     - group:
-         group:  pocoper
+         name:  pocoper
          gid: 28141
          state: present
          system: no
   tasks:
     - name: create backup group
     - group:
-         group:  pocbackup
+         name:  pocbackup
          gid: 28142
          state: present
          system: no
