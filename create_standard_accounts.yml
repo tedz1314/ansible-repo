@@ -5,21 +5,21 @@
   vars:
   tasks:
     - name: create admin group
-    - group:
+      group:
          name:  pocadmin
          gid: 28140
          state: present
          system: no
   tasks:
     - name: create operator group
-    - group:
+      group:
          name:  pocoper
          gid: 28141
          state: present
          system: no
   tasks:
     - name: create backup group
-    - group:
+      group:
          name:  pocbackup
          gid: 28142
          state: present
@@ -30,7 +30,7 @@
   vars:
   tasks:
     - name: create admin user
-    - user:
+      user:
            name: admin
            uid: 28140
            group: pocadmin
@@ -41,7 +41,7 @@
            update_password: on_create
   tasks:
     - name: create operator
-    - user:
+      user:
            name: oper
            uid: 28141
            group: pocoper
@@ -52,7 +52,7 @@
            update_password: on_create
   tasks:
     - name: create backup
-    - user:
+      user:
            name: backup
            uid: 28142
            group: pocbackup
