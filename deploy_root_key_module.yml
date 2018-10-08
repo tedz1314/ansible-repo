@@ -2,8 +2,8 @@
 - hosts: all
   tasks:
   - copy:
-      src: /tmp/id_rsa.pub
+      src: /tmp/pubfile
       dest: /tmp/id_rsa.pub
   - user: name=root
   - name: Placing key
-    authorized_key: user=root key="{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    authorized_key: user=root key="{{ lookup('file', '/tmp/id_rsa.pub') }}"
