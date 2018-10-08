@@ -10,6 +10,10 @@
          state: restarted
 
    tasks:
+
+    - stat:
+        path: /ansible/templates/haproxy2.j2
+
     - name: Install haproxy
       yum: pkg=haproxy state=latest update_cache=true
     - name: Enable haproxy
@@ -19,12 +23,9 @@
          state: started
     - name: Update haproxy configure
       template:
-         src: /ansible/templates/haproxy2.j2
+         src: /ansible/templates/haproxy.j2
          dest: /etc/haproxy/haproxy.cfg
          backup: yes
     - name: Restart haproxy
       command: echo "this task will restart haproxy"
       notify: "restart haproxy"
-      
-
-  
