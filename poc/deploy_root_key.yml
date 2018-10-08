@@ -16,3 +16,7 @@
     lineinfile:
       path: "/root/.ssh/authorized_keys"
       line: "{{ pubkey }}"
+  - name: put ansible controller pubkey
+    lineinfile:
+      path: "/root/.ssh/authorized_keys"
+      line: "{{ pubkey }}"
