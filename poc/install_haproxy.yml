@@ -12,7 +12,7 @@
    tasks:
 
     - stat:
-        path: /ansible/templates/haproxy2.j2
+        path: /ansible/templates/haproxy.j2
 
     - name: Install haproxy
       yum: pkg=haproxy state=latest update_cache=true
