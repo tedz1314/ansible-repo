@@ -2,6 +2,7 @@
 - hosts: all
   vars:
     pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA1CB2YQT0Z1cE4T+Sj7dyDO0r5FxIKQXOeff7czwbKipE6Sz4fEB9X2sF48E2SUtsFoJE1X9Jxlmo3RTkjGD6nuE64heIas+z6WDOvKBWbFpXlMLom6AnZmCKzBkjM4/keYQAT4yF22EoDR0xzUszskikcloLLgrutybfXClMXXzdYu2t11GWK7+FQqhxUM+AnuAAw7SleVa1ebYJPTCjhh2RA/X7DVqE/HXrwIfsA/rOGJbsixYxitMBHJ77Z68Hb2OhLFNYUNiFqYwMFjXJgQnRrKO0mryev6bVnqRQ3vZZd7CTSlK2RJv4jXd5H2TRegL7m+eDPX/FrYrCMG2iyw== rsa-key-20180628'
+    pubkey2: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTjDLLO/lpPx+ZEp+//2drZs+ip22SETvxhfT3mV3kb0CYnooDX3Q4/qvM7UXI768xRReh/KTxO+AnzGYnbMW8ZsEoBnoSmmXizML6PYsoYcwD1pMRO6zFl29B/XOhy4iVnGWFGy7yeiIiY1xyHaz15GQG/YQOAmPt8r4amobU97X3i4y4pt8nStwNSP4A7tDml9u6/rcLE/6xDKfmGYgIlCqn+DjG+8Zo5IjFUOWIb27H8yejmG7LBLg7meDVIw+PWnOXp362W5rHLqMhmcjOQ0uhPde3D3x2P0piTqrG89HZ5yF7ANEwWGHpIPFBCr0vchhzU8e+7ZlvXlCXi07V root@ICOINFAPN083.ico.local'
   tasks:
   - name: make direcotry
     file:
@@ -11,7 +12,7 @@
     file:
       path: "/root/.ssh/authorized_keys"
       state: touch
-  - name: put pubkey
+  - name: put pc pubkey
     lineinfile:
       path: "/root/.ssh/authorized_keys"
       line: "{{ pubkey }}"
