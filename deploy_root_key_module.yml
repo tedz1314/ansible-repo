@@ -3,8 +3,8 @@
   tasks:
   - copy:
       src: /software/id_rsa.pub
-      dest: /tmp/id_rsa.pub
+      dest: /box/id_rsa.pub
       mode: 0777
   - user: name=root
   - name: Placing key
-    authorized_key: user=root key="{{ lookup('file', '/tmp/id_rsa.pub') }}"
+    authorized_key: user=root key="{{ lookup('file', '/box/id_rsa.pub') }}"
