@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
   - copy:
-      src: /tmp/pubfile
+      src: /software/id_rsa.pub
       dest: /tmp/id_rsa.pub
       mode: 0777
   - user: name=root
