@@ -3,4 +3,3 @@
   tasks:
     - name: GetIP
       command: ip a
-

@@ -3,4 +3,3 @@
   tasks:
     - name: Upload files from src to dest
       copy: src=/files/testfile.txt dest=/tmp/testfile.txt mode=0750 user:test group:test
-

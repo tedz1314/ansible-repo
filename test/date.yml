@@ -3,4 +3,3 @@
   tasks:
     - name: Check server date
       command: date
-

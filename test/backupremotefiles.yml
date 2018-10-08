@@ -2,6 +2,7 @@
 - name: Useradd user
   hosts: all
   vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
   tasks:
     - group:
          name:  testgroup
@@ -16,11 +17,10 @@
          shell: /bin/bash
          groups: wheel
          append: yes
-         
+
     - copy:
-         src: /file/ansible-tower-setup-latest.tar
-         dest: /tmp/ansible-tower-setup-latest.tar
-         owner: test05
+         remote_src: true
+         src: /tmp/ansible-tower-setup-latest.tar
+         dest: /tmp/ansible-tower-setup-latest.tar.{{ date }}
+         owner: test01
          group: testgroup
-         mode: 0754
-         backup: yes
