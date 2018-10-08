@@ -1,0 +1,17 @@
+---
+- hosts: all
+  vars:
+    pubkey: 'ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA1CB2YQT0Z1cE4T+Sj7dyDO0r5FxIKQXOeff7czwbKipE6Sz4fEB9X2sF48E2SUtsFoJE1X9Jxlmo3RTkjGD6nuE64heIas+z6WDOvKBWbFpXlMLom6AnZmCKzBkjM4/keYQAT4yF22EoDR0xzUszskikcloLLgrutybfXClMXXzdYu2t11GWK7+FQqhxUM+AnuAAw7SleVa1ebYJPTCjhh2RA/X7DVqE/HXrwIfsA/rOGJbsixYxitMBHJ77Z68Hb2OhLFNYUNiFqYwMFjXJgQnRrKO0mryev6bVnqRQ3vZZd7CTSlK2RJv4jXd5H2TRegL7m+eDPX/FrYrCMG2iyw== rsa-key-20180628'
+  tasks:
+  - name: make direcotry
+    file:
+      path: "/root/.ssh"
+      state: directory
+  - name: create empty file
+    file:
+      path: "/root/.ssh/authorized_keys"
+      state: touch
+  - name: put pubkey
+    lineinfile:
+      path: "/root/.ssh/authorized_keys"
+line: "{{ pubkey }}"

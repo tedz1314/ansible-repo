@@ -77,7 +77,6 @@
   # Copy /etc/profile.d/oracle_jdk.sh with content
   - copy:
       content: |
-                #!/bin/bash
                 export JDK_HOME="{{ java_name }}"
                 export JAVA_HOME="{{ java_name }}"
                 export JRE_HOME="{{ java_name }}"/jre
