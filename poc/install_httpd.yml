@@ -1,0 +1,26 @@
+---
+ - hosts: all
+   name: Install and configure apache
+   vars:
+   handlers:
+    - name: restart httpd
+      service:
+         name: httpd
+         state: restarted
+
+   tasks:
+    - name: Install httpd
+      yum: pkg=httpd state=latest update_cache=true
+    - name: Enable httpd
+      service:
+         name: httpd
+         enabled: yes
+         state: started
+    - name: Update httpd configure
+      template:
+         src: /ansible/templates/httpd.j2
+         dest: /etc/httpd/conf/httpd.conf
+         backup: yes
+    - name: Restart http
+      command: echo "this task will restart http"
+      notify: "restart httpd"
