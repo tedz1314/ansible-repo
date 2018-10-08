@@ -1,0 +1,19 @@
+---
+ - hosts: all
+   name: upload http config
+   vars:
+   handlers:
+    - name: restart httpd
+      service:
+         name: httpd
+         state: restarted
+
+   tasks:
+    - name: Update httpd configure
+      template:
+         src: /webappteam/index.j2
+         dest: /var/www/html/index.html
+         backup: yes
+    - name: Restart http
+      command: echo "this task will restart http"
+      notify: "restart httpd"
