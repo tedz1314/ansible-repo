@@ -1,0 +1,35 @@
+#Create Standard accounts eg. admin, operator, backup,
+---
+- name: Create Groups
+  hosts: all
+  vars:
+  tasks:
+    - name: create web group
+      group:
+         name:  pocweb
+         gid: 28145
+         state: present
+         system: no
+
+- name: Create Users
+  hosts: all
+  vars:
+  tasks:
+    - name: create web01 user
+      user:
+           name: pocweb01
+           uid: 28145
+           group: pocweb
+           groups: pocoper,pocbackup
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           update_password: on_create
+    - name: create web02 user
+      user:
+           name: pocweb02
+           uid: 28146
+           group: pocweb
+           groups: pocoper,pocbackup
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           update_password: on_create

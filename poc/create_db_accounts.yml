@@ -1,0 +1,26 @@
+#Create Standard accounts eg. admin, operator, backup,
+---
+- name: Create Groups
+  hosts: all
+  vars:
+  tasks:
+    - name: create db group
+      group:
+         name:  pocdb
+         gid: 28148
+         state: present
+         system: no
+
+- name: Create Users
+  hosts: all
+  vars:
+  tasks:
+    - name: create db01 user
+      user:
+           name: pocdb01
+           uid: 28148
+           group: pocdb
+           groups:
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           update_password: on_create
