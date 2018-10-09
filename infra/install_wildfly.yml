@@ -7,10 +7,9 @@
     wildfly_archive: wildfly-14.0.1.Final.tar.gz
     wildfly_local_dir: wildfly-14.0.1.Final
     target_folder: /app
-    slink_path: "{{ target_folder }}/wildfly"
-#    profile_path: /etc/profile
     wildfly_path: "{{ target_folder }}/{{ wildfly_local_dir }}"
     local_source: /software/{{ wildfly_archive }}
+    slink_path: "{{ wildfly_path }}"
 
   tasks:
   - name: Create Directory structure
