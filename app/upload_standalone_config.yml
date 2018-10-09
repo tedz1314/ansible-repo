@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   name: upload standalone config
+   vars:
+   handlers:
+
+   tasks:
+    - name: Update standalone.xml config
+      copy:
+         src: /ansible/templates/standalone.xml.j2
+         dest: /app/wildfly/standalone/configuration/standalone.xml
+         backup: yes

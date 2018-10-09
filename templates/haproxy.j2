@@ -16,7 +16,7 @@ defaults
   timeout server  10000
 
 frontend {{haproxy_frontend}}
-  bind			*:8888
+  bind			*:{{haproxy_listen_port}}
   mode			{{haproxy_mode}}
   description		etcetcetc
   option	 	tcpka
@@ -29,14 +29,12 @@ backend {{haproxy_backend}}
   server		{{server.name}} {{server.ip}}:{{server.port}} {{server.paramstring}}
 {% endfor %}
   mode			{{haproxy_mode}}
-  option		tcpka
-  option		ssl-hello-chk
+  option		httpchk
   timeout server	2s
   timeout connect	1s
-  tcp-check		connect port 636 ssl
 
 
 listen stats *:1936
-  stats enable
+  stats {{haproxy_enable_stats}}
   stats uri /
   
