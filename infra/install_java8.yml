@@ -1,0 +1,54 @@
+---
+- hosts: all
+  #remote_user: ansible
+  #sudo: yes
+  #become: true
+  vars:
+    jdk_dir: 8u131-b11
+    jdk_archive: jdk-8u131-linux-x64.tar.gz
+    jdk_local_dir: jdk1.8.0_131
+    download_folder: /opt/java
+    bin_dir: /usr/bin
+    profile_path: /etc/profile.d
+    java_name: "{{ download_folder }}/{{ jdk_local_dir }}"
+#    java_archive: "{{ download_folder }}/{{ jdk_archive }}"
+    download_url: http://download.oracle.com/otn-pub/java/jdk/"{{jdk_dir}}"/"{{jdk_archive}}"
+    java_version: 8
+    java_subversion: 131
+    java_build_custom: 11
+    jdk_version_detail_custom: "{{ java_version }}u{{ java_subversion }}-b{{ java_build_custom }}"
+    jdk_tarball_hash: d54c1d3a095b4ff2b6607d096fa80163
+    jdk_tarball_url: "http://download.oracle.com/otn-pub/java/jdk/{{ jdk_version_detail_custom }}/{{ jdk_tarball_hash }}/{{ jdk_archive }}"
+
+  tasks:
+  - name: Create Directory structure
+    file: path="{{download_folder}}" state=directory
+    file: path="{{java_name}}" state=directory
+
+  - name: Unpack archive
+    unarchive:
+     src=/software/"{{jdk_archive}}"
+     dest="{{ download_folder }}"
+
+  - name: Fix ownership
+    file: state=directory path="{{ download_folder }}" owner=root group=root recurse=yes
+
+  - name: put JDK_HOME in /etc/profile
+    lineinfile:
+      path: "/etc/profile"
+      line: 'export JDK_HOME="{{ java_name }}"'
+
+  - name: put JAVA_HOME in /etc/profile
+    lineinfile:
+      path: "/etc/profile"
+      line: 'export JAVA_HOME="{{ java_name }}"'
+
+  - name: put JRE_HOME in /etc/profile
+    lineinfile:
+      path: "/etc/profile"
+      line: 'export JRE_HOME="{{ java_name }}"/jre'
+
+  - name: put JAVA bin in /etc/profile
+    lineinfile:
+      path: "/etc/profile"
+      line: 'export PATH=$PATH:"{{ java_name }}"/bin:"{{ java_name }}"/jre/bin'
