@@ -29,3 +29,6 @@
       src: "{{ wildfly_path }}"
       dest: "{{ slink_path }}"
       state: link
+
+  - name: Create admin user for wildfly admin console
+    command: "{{ slink_path }}/bin/add-user.sh admin password"
