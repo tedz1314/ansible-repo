@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   name: Install and configure apache
+   vars:
+     local_source: /ansible/templates/"{{jdk_archive}}"
+     local_source2: /software/"{{jdk_archive}}"
+
+   tasks:
+   - name: check if file source exists
+     stat:
+       path: "{{ local_source }}"
+   - name: check if file source exists
+     stat:
+       path: "{{ local_source2 }}"
