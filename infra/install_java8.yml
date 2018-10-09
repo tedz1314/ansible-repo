@@ -27,7 +27,7 @@
 
   - name: Create symbolic links
     file:
-      src: "{{ download_folder }}"
+      src: "{{ java_name }}"
       dest: "{{ slink_path }}"
       state: link
 
