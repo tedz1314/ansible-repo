@@ -31,4 +31,4 @@
       state: link
 
   - name: Create admin user for wildfly admin console
-    command: "{{ slink_path }}/bin/add-user.sh admin password"
+    command: "{{ slink_path }}/bin/add-user.sh -s admin password"
