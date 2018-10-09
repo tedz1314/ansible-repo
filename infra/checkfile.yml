@@ -3,9 +3,9 @@
    name: Install and configure apache
    vars:
      jdk_archive: "jdk-8u131-linux-x64.tar.gz"
-     local_source: /ansible/templates/"{{jdk_archive}}"
-     local_source2: /software/"{{jdk_archive}}"
-     local_source3: /software/abcdfile
+     local_source: /software/"{{jdk_archive}}"
+     local_source2: /software/jdk-8u131-linux-x64.tar.gz
+     local_source3: /software/jdk.tar.gz
 
    tasks:
    - name: check if file source exists
