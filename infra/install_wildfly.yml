@@ -31,5 +31,4 @@
       state: link
 
   - name: Create admin user for wildfly admin console
-    command: 'source /etc/profile; '{{ slink_path }}'/bin/add-user.sh -s admin password'
-    ignore_errors: true
+    command: 'source /etc/profile; {{ slink_path|quote }}/bin/add-user.sh -s admin password'
