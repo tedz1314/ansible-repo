@@ -9,7 +9,7 @@
     target_folder: /app
     wildfly_path: "{{ target_folder }}/{{ wildfly_local_dir }}"
     local_source: /software/{{ wildfly_archive }}
-    slink_path: "{{ wildfly_path }}"
+    slink_path: "{{ target_folder }}/wildfly"
 
   tasks:
   - name: Create Directory structure
@@ -26,6 +26,6 @@
 
   - name: Create symbolic links
     file:
-      src: "{{ target_folder }}"
+      src: "{{ wildfly_path }}"
       dest: "{{ slink_path }}"
       state: link
