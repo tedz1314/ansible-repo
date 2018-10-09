@@ -10,3 +10,5 @@
          src: /ansible/templates/standalone.xml.j2
          dest: /app/wildfly/standalone/configuration/standalone.xml
          backup: yes
+
+    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
