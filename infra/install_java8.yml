@@ -27,8 +27,8 @@
     file: path="{{java_name}}" state=directory
 
   - name: check if file source exists
-    - stat:
-        path: "{{ local_source }}"
+    stat:
+      path: "{{ local_source }}"
 
   - name: Unpack archive
     unarchive:
