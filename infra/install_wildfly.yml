@@ -1,0 +1,32 @@
+---
+- hosts: all
+  #remote_user: ansible
+  #sudo: yes
+  #become: true
+  vars:
+    wildfly_archive: wildfly-14.0.1.Final.tar.gz
+    wildfly_local_dir: wildfly-14.0.1.Final
+    target_folder: /app
+    slink_path: "{{ target_folder }}/wildfly"
+#    profile_path: /etc/profile
+    wildfly_path: "{{ target_folder }}/{{ wildfly_local_dir }}"
+    local_source: /software/{{ wildfly_archive }}
+
+  tasks:
+  - name: Create Directory structure
+    file: path="{{ target_folder }}" state=directory
+    file: path="{{ wildfly_path }}" state=directory
+
+  - name: Unpack archive
+    unarchive:
+     src: "{{ local_source }}"
+     dest: "{{ target_folder }}"
+
+  - name: Fix ownership
+    file: state=directory path="{{ target_folder }}" owner=wildfly group=wildfly recurse=yes
+
+  - name: Create symbolic links
+    file:
+      src: "{{ target_folder }}"
+      dest: "{{ slink_path }}"
+      state: link
