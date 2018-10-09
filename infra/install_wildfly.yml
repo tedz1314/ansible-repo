@@ -32,3 +32,4 @@
 
   - name: Create admin user for wildfly admin console
     shell: "{{ slink_path }}/bin/add-user.sh -s admin password"
+    ignore_errors: true
