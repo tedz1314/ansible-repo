@@ -27,8 +27,10 @@
 
   - name: Unpack archive
     unarchive:
-     src=/software/"{{jdk_archive}}"
-     dest="{{ download_folder }}"
+     src: /software/"{{jdk_archive}}"
+     dest: "{{ download_folder }}"
+     owner: test05
+     group: testgroup
 
   - name: Fix ownership
     file: state=directory path="{{ download_folder }}" owner=root group=root recurse=yes
