@@ -27,7 +27,7 @@
 
   - name: Unpack archive
     unarchive:
-     src: /software/"{{jdk_archive}}"
+     src: /ansible/templates/"{{jdk_archive}}"
      dest: "{{ download_folder }}"
      owner: root
      group: root
