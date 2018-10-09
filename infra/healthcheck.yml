@@ -1,7 +1,0 @@
----
- - name: test services
-   command: systemctl status {{ item }}
-   with_items:
-           - firewalld
-           - haproxy
-           - httpd

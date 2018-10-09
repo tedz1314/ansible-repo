@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   name: Install and configure haproxy
+   vars:
+   tasks:
+   - name: test services
+     command: systemctl status {{ item }}
+     with_items:
+           - firewalld
+           - haproxy
+           - httpd
