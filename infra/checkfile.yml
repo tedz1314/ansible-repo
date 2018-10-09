@@ -4,6 +4,7 @@
    vars:
      local_source: /ansible/templates/"{{jdk_archive}}"
      local_source2: /software/"{{jdk_archive}}"
+     local_source3: /software/abcdfile
 
    tasks:
    - name: check if file source exists
@@ -12,3 +13,6 @@
    - name: check if file source exists
      stat:
        path: "{{ local_source2 }}"
+   - name: check if file source exists
+     stat:
+       path: "{{ local_source3 }}"
