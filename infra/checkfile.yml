@@ -2,6 +2,7 @@
  - hosts: all
    name: Install and configure apache
    vars:
+     jdk_archive: jdk-8u131-linux-x64.tar.gz
      local_source: /ansible/templates/"{{jdk_archive}}"
      local_source2: /software/"{{jdk_archive}}"
      local_source3: /software/abcdfile
