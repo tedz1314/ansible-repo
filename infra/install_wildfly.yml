@@ -31,5 +31,6 @@
       state: link
 
   - name: Create admin user for wildfly admin console
-    shell: "java -version; {{ slink_path }}/bin/add-user.sh -s admin password"
+    shell: "java -version"
+# {{ slink_path }}/bin/add-user.sh -s admin password"
     ignore_errors: true
