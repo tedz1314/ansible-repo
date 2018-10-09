@@ -10,6 +10,12 @@
          gid: 28148
          state: present
          system: no
+    - name: create wildfly group
+      group:
+         name:  wildfly
+         gid: 28149
+         state: present
+         system: no
 
 - name: Create Users
   hosts: all
@@ -20,7 +26,16 @@
            name: pocapp01
            uid: 28148
            group: pocapp
-           groups:
+           groups: wildfly
+           password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
+           append: yes
+           update_password: on_create
+    - name: create wildfly user
+      user:
+           name: wildfly
+           uid: 28149
+           group: wildfly
+           groups: pocapp
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
            update_password: on_create
