@@ -4,9 +4,9 @@
   hosts: all
   vars:
   tasks:
-    - name: create db group
+    - name: create app group
       group:
-         name:  pocdb
+         name:  pocapp
          gid: 28148
          state: present
          system: no
@@ -15,11 +15,11 @@
   hosts: all
   vars:
   tasks:
-    - name: create db01 user
+    - name: create app01 user
       user:
-           name: pocdb01
+           name: pocapp01
            uid: 28148
-           group: pocdb
+           group: pocapp
            groups:
            password: $6$DH/2ENbQvCty0wha$IswK4VVkbc6mDq2F07zhZF4B/7X84dW2mQHbSfyFcyidVjaAZgikuoxABHcrsLUowWUbj5vk2VtUohiHgF2A70
            append: yes
