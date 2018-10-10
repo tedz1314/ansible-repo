@@ -1,7 +1,6 @@
 ---
  - hosts: all
    name: upload standalone config
-   become: true
    vars:
    handlers:
     - name: start profile
@@ -19,7 +18,7 @@
          backup: yes
 
     - name: start wildfly
-      command: 'nohup /app/wildfly/bin/standalone.sh 2>&1 &'
+      command: '/etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
       ignore_errors: yes
 
 #    - name: Start wildfly
