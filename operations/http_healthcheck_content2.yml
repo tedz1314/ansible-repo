@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   name: Healthcheck httpd server is online
+   vars:
+   tasks:
+     - name: Wait for server to pass health-checks
+       uri:
+         url: http://192.168.7.98
+         return_content: yes
+       register: webpage
+
+     - name: Fail if "successfully deployed" is not in the page content
+       fail:
+       when: "'successfully deployed' not in webpage.content"
