@@ -21,7 +21,7 @@
       command: echo "this task will start wildfly"
       notify: "start wildfly"
 
-    - name: Start profile
-      command: echo "this task will start profile"
-      notify: "start profile"
+#    - name: Start profile
+#      command: echo "this task will start profile"
+#      notify: "start profile"
 #    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
