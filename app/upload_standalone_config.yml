@@ -1,6 +1,7 @@
 ---
  - hosts: all
    name: upload standalone config
+   become: true
    vars:
    handlers:
     - name: start profile
