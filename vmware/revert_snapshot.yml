@@ -1,16 +1,22 @@
 - name: Change Password
   hosts: all
   connection: local
+  vars:
+    vm_list:
+      - ICOINFAPN084_redhat
+      - ICOINFAPN085_redhat
+
   tasks:
     - name: revert a snapshot
       vmware_guest_snapshot:
-        name: ICOINFAPN085_redhat
+        name: "{{ vm_list }}"
         folder: ICO/Non-Production
         datacenter: ICO
         state: revert
         snapshot_name: clean
 
+
     - name: power on vm
       vmware_guest:
-        name: ICOINFAPN085_redhat
+        name: "{{ vm_list }}"
         state: poweredon
