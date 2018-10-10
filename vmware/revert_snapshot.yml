@@ -12,7 +12,7 @@
       vmware_guest_snapshot:
         name: "{{ vm_name }}"
         folder: "{{ vm_folder }}"
-        datacenter: {{ vm_datacenter }}"
+        datacenter: "{{ vm_datacenter }}"
         state: revert
         snapshot_name: "{{ vm_snapshow_name }}"
 
