@@ -5,7 +5,7 @@
     vm_name: ICOINFAPN084_redhat
     vm_folder: ICO/Non-Production
     vm_datacenter: ICO
-    vm_snapshow_name: clean
+    vm_snapshot_name: clean
 
   tasks:
     - name: revert a snapshot
@@ -14,7 +14,7 @@
         folder: "{{ vm_folder }}"
         datacenter: "{{ vm_datacenter }}"
         state: revert
-        snapshot_name: "{{ vm_snapshow_name }}"
+        snapshot_name: "{{ vm_snapshot_name }}"
 
     - name: power on vm
       vmware_guest:
