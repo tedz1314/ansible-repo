@@ -3,6 +3,9 @@
    name: upload standalone config
    vars:
    handlers:
+    - name: start wildfly
+      command: 'source /etc/profile; /app/wildfly/bin/standalone.sh'
+         listen: "start wildfly"
 
    tasks:
     - name: Update standalone.xml config
@@ -11,4 +14,8 @@
          dest: /app/wildfly/standalone/configuration/standalone.xml
          backup: yes
 
-    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+    - name: Start wildfly
+      command: echo "this task will start wildfly"
+      notify: "start wildfly"
+
+#    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
