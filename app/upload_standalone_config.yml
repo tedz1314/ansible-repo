@@ -3,11 +3,8 @@
    name: upload standalone config
    vars:
    handlers:
-    - name: start profile
-      command: source /etc/profile
-      listen: "start profile"
     - name: start wildfly
-      command: 'source /etc/profile;  nohup /app/wildfly/bin/standalone.sh 2>&1 &'
+      shell: 'source /etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
       listen: "start wildfly"
 
    tasks:
@@ -17,15 +14,8 @@
          dest: /app/wildfly/standalone/configuration/standalone.xml
          backup: yes
 
-    - name: start wildfly
-      shell: 'source /etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
-      ignore_errors: yes
+    - name: Start wildfly
+      command: echo "this task will start wildfly"
+      notify: "start wildfly"
 
-#    - name: Start wildfly
-#      command: echo "this task will start wildfly"
-#      notify: "start wildfly"
-
-#    - name: Start profile
-#      command: echo "this task will start profile"
-#      notify: "start profile"
 #    - debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
