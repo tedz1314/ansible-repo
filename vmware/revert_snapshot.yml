@@ -9,7 +9,8 @@
   tasks:
     - name: revert a snapshot
       vmware_guest_snapshot:
-        name: "{{ vm_list }}"
+#        name: "{{ vm_list }}"
+        name: ICOINFAPN084_redhat
         folder: ICO/Non-Production
         datacenter: ICO
         state: revert
