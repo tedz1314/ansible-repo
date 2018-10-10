@@ -19,7 +19,7 @@
          backup: yes
 
     - name: start wildfly
-      command: "source /etc/profile;  nohup /app/wildfly/bin/standalone.sh 2>&1 &"
+      command: "nohup /app/wildfly/bin/standalone.sh 2>&1 &"
 
 #    - name: Start wildfly
 #      command: echo "this task will start wildfly"
