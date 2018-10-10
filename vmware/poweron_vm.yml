@@ -1,0 +1,12 @@
+- name: Poweron vm
+  hosts: all
+  connection: local
+  vars:
+    vm_name: ICOINFAPN084_redhat
+    vm_folder: ICO/Non-Production
+    vm_datacenter: ICO
+
+    - name: power on vm
+      vmware_guest:
+        name: "{{ vm_name }}"
+        state: poweredoon
