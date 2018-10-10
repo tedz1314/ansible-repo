@@ -2,23 +2,21 @@
   hosts: all
   connection: local
   vars:
-    vm_list:
-      - ICOINFAPN084_redhat
-      - ICOINFAPN085_redhat
+    vm_name: ICOINFAPN084_redhat
+    vm_folder: ICO/Non-Production
+    vm_datacenter: ICO
+    vm_snapshow_name: clean
 
   tasks:
     - name: revert a snapshot
       vmware_guest_snapshot:
-#        name: "{{ vm_list }}"
-        name: ICOINFAPN084_redhat
-        folder: ICO/Non-Production
-        datacenter: ICO
+        name: "{{ vm_name }}"
+        folder: "{{ vm_folder }}"
+        datacenter: {{ vm_datacenter }}"
         state: revert
-        snapshot_name: clean
-
+        snapshot_name: "{{ vm_snapshow_name }}"
 
     - name: power on vm
       vmware_guest:
-        name: "{{ vm_list }}"
-#        name: ICOINFAPN084_redhat
+        name: "{{ vm_name }}"
         state: poweredon
