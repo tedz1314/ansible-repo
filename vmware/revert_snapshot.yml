@@ -1,5 +1,6 @@
 - name: Change Password
   hosts: all
+  connection: local
   tasks:
     - name: revert a snapshot
       vmware_guest_snapshot:
@@ -7,4 +8,3 @@
            datacenter: ICO
            state: revert
            snapshot_name: clean
-      delegate_to: localhost
