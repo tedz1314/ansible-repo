@@ -7,7 +7,7 @@
 #        hostname: 192.168.3.36
         name: ICOINFAPN085_redhat
 #        folder: ICO/Non-Production
-#        datacenter: ICO
+        datacenter: ICO
         state: revert
         snapshot_name: clean
 
