@@ -4,7 +4,7 @@
    vars:
    handlers:
     - name: start wildfly
-      command: 'source /etc/profile; /app/wildfly/bin/standalone.sh'
+      command: source /etc/profile; /app/wildfly/bin/standalone.sh
       listen: "start wildfly"
 
    tasks:
