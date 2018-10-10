@@ -4,8 +4,9 @@
   tasks:
     - name: revert a snapshot
       vmware_guest_snapshot:
-           name: ICOINFAPN085_redhat
-           folder: ICO/Non-Production
-           datacenter: ICO
-           state: revert
-           snapshot_name: clean
+        hostname: 192.168.3.36
+        name: ICOINFAPN085_redhat
+        folder: ICO/Non-Production
+        datacenter: ICO
+        state: revert
+        snapshot_name: clean
