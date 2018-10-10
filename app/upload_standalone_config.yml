@@ -18,7 +18,7 @@
          backup: yes
 
     - name: start wildfly
-      command: '/etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
+      shell: 'source /etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
       ignore_errors: yes
 
 #    - name: Start wildfly
