@@ -19,5 +19,6 @@
 
     - name: power on vm
       vmware_guest:
-        name: ICOINFAPN084_redhat
+        name: "{{ vm_list }}"
+#        name: ICOINFAPN084_redhat
         state: poweredon
