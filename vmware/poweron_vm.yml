@@ -10,4 +10,4 @@
     - name: power on vm
       vmware_guest:
         name: "{{ vm_name }}"
-        state: poweredoon
+        state: poweredon
