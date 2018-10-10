@@ -6,6 +6,7 @@
     vm_folder: ICO/Non-Production
     vm_datacenter: ICO
 
+  tasks:
     - name: power on vm
       vmware_guest:
         name: "{{ vm_name }}"
