@@ -9,6 +9,6 @@
          return_content: yes
        register: webpage
 
-     - name: Fail if "successfully deployed" is not in the page content
+     - name: Fail if "unsuccessfully deployed" is not in the page content
        fail:
-       when: "'successfully deployed' not in webpage.content"
+       when: "'unsuccessfully deployed' not in webpage.content"
