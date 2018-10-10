@@ -1,0 +1,10 @@
+- name: Change Password
+  hosts: all
+  tasks:
+    - name: revert a snapshot
+      vmware_guest_snapshot:
+           name: ICOINFAPN085_redhat
+           datacenter: ICO
+           state: revert
+           snapshot_name: clean
+           delegate_to: localhost
