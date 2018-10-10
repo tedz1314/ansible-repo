@@ -7,7 +7,7 @@
       command: source /etc/profile
       listen: "start profile"
     - name: start wildfly
-      command: 'source /etc/profile; /app/wildfly/bin/standalone.sh'
+      command: 'source /etc/profile;  nohup /app/wildfly/bin/standalone.sh 2>&1 &'
       listen: "start wildfly"
 
    tasks:
