@@ -19,6 +19,5 @@
 
     - name: power on vm
       vmware_guest:
-        name: "{{ vm_list }}"
-        folder: ICO/Non-Production
+        name: ICOINFAPN084_redhat
         state: poweredon
