@@ -6,8 +6,8 @@
   vars:
     resolv_path: /etc/resolv.conf
     dns_servers:
-      - 192.168.2.133
-      - 192.168.2.134
+      - nameserver 192.168.2.133
+      - nameserver 192.168.2.134
     dns_search: ico.local
 
   tasks:
