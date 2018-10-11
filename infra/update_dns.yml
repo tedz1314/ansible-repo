@@ -18,8 +18,7 @@
     - name: put dns servers
       lineinfile:
         path: "{{ resolv_path }}"
-        line: "{{ dns_servers[0] }}"
-        line: "{{ dns_servers[1] }}"
+        line: "{{ dns_servers.line }}"
     - name: put search domains
       lineinfile:
         path: "{{ resolv_path }}"
