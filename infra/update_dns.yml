@@ -1,0 +1,27 @@
+---
+- hosts: all
+  #remote_user: ansible
+  #sudo: yes
+  #become: true
+  vars:
+    resolv_path: /etc/resolv.conf
+    dns_servers:
+      - 192.168.2.133
+      - 192.168.2.134
+    dns_search: ico.local
+
+  tasks:
+    - name: empty /etc/resolv.conf file
+      copy:
+        content: ''
+        dest: "{{ resolv_path }}"
+
+  - name: put dns servers
+    lineinfile:
+      path: "{{ resolv_path }}"
+      line: "{{ dns_servers }}"
+
+  - name: put search domains
+    lineinfile:
+      path: "{{ resolv_path }}"
+      line: "{{ dns_search }}"
