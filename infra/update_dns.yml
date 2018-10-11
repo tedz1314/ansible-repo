@@ -7,7 +7,7 @@
     resolv_path: /etc/resolv.conf
     dns_server1: nameserver 192.168.2.133
     dns_server2: nameserver 192.168.2.134
-    dns_search: ico.local
+    dns_search: search ico.local
 
   tasks:
     - name: empty /etc/resolv.conf file
