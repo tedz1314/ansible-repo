@@ -6,9 +6,8 @@
   vars:
     resolv_path: /etc/resolv.conf
     dns_servers:
-      with_list:
-        - nameserver 192.168.2.133
-        - nameserver 192.168.2.134
+    - nameserver 192.168.2.133
+    - nameserver 192.168.2.134
     dns_search: ico.local
 
   tasks:
@@ -19,7 +18,8 @@
     - name: put dns servers
       lineinfile:
         path: "{{ resolv_path }}"
-        line: "{{ dns_servers }}"
+        line: "{{ dns_servers[0] }}"
+        line: "{{ dns_servers[1] }}"
     - name: put search domains
       lineinfile:
         path: "{{ resolv_path }}"
