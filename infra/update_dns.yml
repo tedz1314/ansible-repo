@@ -14,16 +14,19 @@
       copy:
         content: ''
         dest: "{{ resolv_path }}"
-    - name: put dns servers
+#    - name: put dns servers
 #      lineinfile:
 #        path: "{{ resolv_path }}"
 #        line: "{{ dns_servers.line }}"
+#    - name: put search domains
+#      lineinfile:
+#        path: "{{ resolv_path }}"
+#        line: "{{ dns_search }}"
+
+    - name: put dns servers
       blockinfile:
         path: "{{ resolv_path }}"
         block: |
            {{ dns_server1 }}
            {{ dns_server2 }}
-    - name: put search domains
-      lineinfile:
-        path: "{{ resolv_path }}"
-        line: "{{ dns_search }}"
+           {{ dns_search }}
