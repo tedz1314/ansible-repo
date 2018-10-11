@@ -1,0 +1,11 @@
+---
+- hosts: all
+  #remote_user: ansible
+  #sudo: yes
+  #become: true
+  vars:
+
+  tasks:
+  - name: set timezone to Asia/HongKong
+    timezone:
+      name: Asia/Hong_Kong
