@@ -18,12 +18,11 @@
 #      lineinfile:
 #        path: "{{ resolv_path }}"
 #        line: "{{ dns_servers.line }}"
-       blockinfile:
-         path: "{{ resolv_path }}"
-         block: |
+      blockinfile:
+        path: "{{ resolv_path }}"
+        block: |
            {{ dns_server1 }}
            {{ dns_server2 }}
-
     - name: put search domains
       lineinfile:
         path: "{{ resolv_path }}"
