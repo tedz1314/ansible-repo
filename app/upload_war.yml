@@ -1,0 +1,10 @@
+- name: Upload war
+  hosts: all
+  tasks:
+    - name: Upload files from src to dest
+      copy:
+        src: /ansible/templates/sample.war
+        dest: /app/wildfly/standalone/deployments/sample.war
+        mode: 0750
+        user: wildfly
+        group: wildfly
