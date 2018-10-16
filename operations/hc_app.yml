@@ -14,5 +14,5 @@
        return_content: yes
      register: webpage
    - name: Fail if "Hello, World" is not in the page content
-       fail:
-       when: "'Hello, World' not in webpage.content"
+     fail:
+     when: "'Hello, World' not in webpage.content"
