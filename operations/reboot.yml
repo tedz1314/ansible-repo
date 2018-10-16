@@ -1,8 +1,8 @@
 ---
- - hosts: all
-   name: Install and configure haproxy
+ - hosts: "{{ server_name }}"
+   name: Reboot host
    vars:
    tasks:
-   - name: Reboot a slow machine that might have lots of updates to apply
+   - name: Reboot a machine and wait for it to come back up
      reboot:
        reboot_timeout: 1200
