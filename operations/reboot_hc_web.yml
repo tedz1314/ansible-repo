@@ -11,6 +11,6 @@
        port: 80
        delay: 10
        timeout: 60
-   - name: Wait for server to pass health-checks
+   - name: health-check {{ server_name }} port 80
      uri:
        url: http://192.168.7.98
