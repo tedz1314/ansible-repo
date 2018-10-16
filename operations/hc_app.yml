@@ -5,11 +5,11 @@
    tasks:
     - name: start wildfly
       shell: 'source /etc/profile; nohup /app/wildfly/bin/standalone.sh 2>&1 &'
-    - name: Wait 30 seconds for port 8080 to become open on the host, don't start checking for 10 seconds
+    - name: Wait 120 seconds for port 8080 to become open on the host, don't start checking for 10 seconds
       wait_for:
         port: 8080
-        delay: 10
-        timeout: 30
+        delay: 20
+        timeout: 120
     - name: Wait for server to pass health-checks
       uri:
         url: http://192.168.7.99:8080/sample
