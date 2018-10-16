@@ -1,0 +1,18 @@
+---
+- hosts: all
+  #remote_user: ansible
+  #sudo: yes
+  #become: true
+  vars:
+  tasks:
+  - name: Register as user with password and auto-subscribe to available content.
+    redhat_subscription:
+      state: present
+      username: teddy.wong@ico.com.hk
+      password: P@ssw0rd
+      auto_attach: true
+  - name: upgrade all packages
+    yum:
+      update_cache: yes
+      name: '*'
+      state: latest
