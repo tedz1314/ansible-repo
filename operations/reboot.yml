@@ -1,0 +1,8 @@
+---
+ - hosts: all
+   name: Install and configure haproxy
+   vars:
+   tasks:
+   - name: Reboot a slow machine that might have lots of updates to apply
+     reboot:
+       reboot_timeout: 1200
