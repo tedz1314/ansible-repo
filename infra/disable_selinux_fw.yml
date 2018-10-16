@@ -9,6 +9,10 @@
       selinux:
         state: disabled
     - name: be sure firewalld is disabled
-      systemd: name=firewalld enabled=no
+      systemd:
+        name: firewalld
+        enabled: no
     - name: be sure firewalld is stopped
-      systemd: name=firewalld state=stopped
+      systemd:
+        name: firewalld
+        state: stopped
